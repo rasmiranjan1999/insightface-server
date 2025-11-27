@@ -2,4 +2,7 @@ flask
 flask-cors
 numpy
 opencv-python-headless
-insightface
+requests
+insightface==0.7.3
+onnxruntime
+pillow
