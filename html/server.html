@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>InsightFace — Face Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light">
+<div class="topbar">
+    <div class="title">Face Recognition Portal</div>
+    <div class="controls">
+        <button id="themeToggle">🌙</button>
+        <button id="clearHistory">Clear History</button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="left-column">
+        <div class="card upload-card">
+            <h3>Upload / Preview</h3>
+            <div class="preview" id="preview"></div>
+            <input type="file" id="upload" accept="image/*" multiple>
+            <div class="buttons">
+                <button id="registerBtn">Register</button>
+                <button id="compareBtn">Compare</button>
+            </div>
+        </div>
+
+        <div class="card result-card hidden" id="resultCard">
+            <div class="result-header">
+                <h3>Match Result</h3>
+                <div id="matchStatus" class="match-status"></div>
+            </div>
+
+            <div class="result-grid">
+                <div class="img-wrap">
+                    <div class="img-label">Selected</div>
+                    <div class="img-box" id="selectedBox">
+                        <img id="selectedImg" class="result-img" />
+                        <div class="bbox" id="bboxQuery"></div>
+                    </div>
+                </div>
+
+                <div class="img-wrap">
+                    <div class="img-label">Matched</div>
+                    <div class="img-box" id="matchedBox">
+                        <img id="matchedImg" class="result-img" />
+                        <div class="bbox" id="bboxMatch"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="score-row">
+                <div id="scoreBox" class="score-box"></div>
+                <button id="zoomBtn" class="subtle">🔍 Zoom</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="right-column">
+        <div class="card history-card">
+            <h3>History</h3>
+            <div id="historyList" class="history-list"></div>
+            <div class="small">Most recent first. Click a row to open zoom viewer.</div>
+        </div>
+
+        <div class="card raw-card">
+            <h3>Raw Response</h3>
+            <pre id="output"></pre>
+        </div>
+    </div>
+</div>
+
+<!-- popup -->
+<div id="popup" class="popup hidden">
+    <div class="popup-inner">
+        <div class="popup-icon">✔</div>
+        <div class="popup-text">Face Matched</div>
+    </div>
+</div>
+
+<!-- zoom -->
+<div id="zoomOverlay" class="zoom-overlay hidden">
+    <div class="zoom-controls">
+        <button id="closeZoom">Close</button>
+    </div>
+    <div class="zoom-content">
+        <div class="zoom-img-wrap"><img id="zoomLeft" /></div>
+        <div class="zoom-img-wrap"><img id="zoomRight" /></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
